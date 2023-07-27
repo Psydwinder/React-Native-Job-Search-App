@@ -20,7 +20,7 @@ const Welcome = () => {
     <View>
       <View style={styles.container}>
         <Text style={styles.userName}>Hello Niete</Text>
-        <Text style={styles.userName}>Find your dream job</Text>
+        <Text style={styles.welcomeMessage}>Find your dream job</Text>
       </View>
       <View style={styles.searchContainer}>
         <View style={styles.searchWrapper}>
