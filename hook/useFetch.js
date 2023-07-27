@@ -18,4 +18,30 @@ const useFetch = (endpoint, query) => {
       "X-RapidAPI-Host": "jsearch.p.rapidapi.com",
     },
   };
+
+  const fetchData = async () => {
+    setIsLoading(true);
+    try {
+      const response = await axios.request(options);
+      setData(response.data.data);
+      setIsLoading(false);
+    } catch (error) {
+      setError(error);
+      alert("There is an error");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  //There were some issues refecthing the data, for instance when you click it sometimes it wasn't loading.
+  const refetch = () => {
+    setIsLoading(true);
+    fetchData();
+  };
+
+  return { data, isLoading, error, refetch };
 };
